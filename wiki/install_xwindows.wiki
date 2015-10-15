@@ -1,0 +1,58 @@
+#summary One-sentence summary of this page.
+
+= Installing X Window X-Server and Window Managers =
+ 
+  Install X window:
+
+  {{{
+   $ apt-get update
+   $ apt-get install x-window-system 
+  }}}
+
+  To install XFCE4  
+
+  {{{
+   $ apt-get install xfce4 xfce4-themes
+  }}}
+
+  To install other window managers like IceWM, Fluxbox, GNOME
+
+  {{{
+   $ apt-get install icewm fluxbox gnome
+  }}}
+
+  If want to use gdm
+
+  {{{
+   $ apt-get install gdm
+  }}}
+
+  To isntall xdm
+
+  {{{
+   $ apt-get install xdm kdm
+  }}}
+
+  Changing your screen resolution
+
+  {{{
+   $ dpkg-reconfigure xserver-xfree86
+  }}}
+
+  Choose your resolution and restart your X with either
+
+  {{{
+   $ /etc/init.d/gdm restart
+  }}}
+
+  Or
+
+  {{{
+   $ startx
+  }}}
+
+  Removing graphical login
+
+  {{{
+   $ update-rc.d xdm remove
+  }}}

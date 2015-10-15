@@ -1,0 +1,38 @@
+#summary One-sentence summary of this page.
+
+= export display =
+
+  {{{
+    $ export DISPLAY=:0.0
+    $ xhost +localhost
+  }}}
+
+= script build opencv apps =
+
+  {{{
+    - Using pkg-config
+
+    $ pkg-config --cflags opencv
+    $ -I/usr/include/opencv
+
+    $ pkg-config --libs opencv
+    $ -lopencv_core -lopencv_imgproc -lopencv_highgui 
+    $ -lopencv_ml -lopencv_video -lopencv_features2d 
+    $ -lopencv_calib3d -lopencv_objdetect -lopencv_contrib
+    $ -lopencv_legacy -lopencv_flann
+
+    - Using the bellow command line to compile
+    
+    $ g++ `pkg-config --cflags opencv` `pkg-config --libs opencv` -o out app.cpp
+
+    - Or create a simple build script
+
+    $ g++ `pkg-config --cflags opencv` `pkg-config --libs opencv` -o exe $1
+  }}}
+
+= how to know installed packages? =
+
+  {{{
+    $ dpkg --get-selections
+  }}}
+    

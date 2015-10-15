@@ -1,0 +1,13 @@
+#summary One-sentence summary of this page.
+
+= Check package version =
+
+ {{{
+  $ dpkg -l libgtk[0-9]* | grep ^i
+  $ pkg-config --modversion gtk+
+  $ pkg-config --modversion gtk+-2.0
+ }}}
+
+
+= Reference =
+ [http://stackoverflow.com/questions/126141/how-do-you-find-out-which-version-of-gtk-is-installed-on-ubuntu]

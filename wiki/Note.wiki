@@ -1,0 +1,19 @@
+#summary One-sentence summary of this page.
+
+= Build root=
+
+[https://code.google.com/p/a13-olinuxino/wiki/BuildRootConfig]
+
+[http://olimex.wordpress.com/2013/03/20/minimal-ubuntu-12-04-2-lts-with-3-4-29-kernel-image-for-a13-olinuxino/]
+
+[http://olimex.wordpress.com/2012/10/12/building-bootable-sd-card-with-debian-linux-image-for-a13-olinuxino/]
+
+[http://nickguthrie.com/embedd_gui/doc/]
+
+[http://www.armadeus.com/wiki/index.php?title=Linux_Boot_Logo]
+
+[http://www.textimg.net/]
+
+[http://www.stlinux.com/howto/splash-screen]
+
+[http://www.directfb.org/wiki/index.php/Projects:GTK_on_DirectFB]

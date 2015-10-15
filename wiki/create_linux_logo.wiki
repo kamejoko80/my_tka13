@@ -1,0 +1,72 @@
+= How to add custom linux logo =
+
+== 1> Generate logo image ==
+
+  {{{
+    - Convert text to image using:
+ 
+      http://www.textimg.net
+ 
+    - Convert png image to ppm (raw image) using:
+
+      http://www.sciweavers.org/free-online-image-converter
+
+      Example: mpuzone.ppm  
+  }}}
+
+== 2> Convert image resolution suit for linux ==
+
+  {{{
+    - $ sudo apt-get install netpbm  
+
+    - Reduce the number of colors in your image to 224:
+
+      $ ppmquant 224 mpuzone.ppm > logo_mpuzone_224.ppm
+
+    - Convert it to PPM ASCII format:
+
+      $ pnmnoraw logo_mpuzone_224.ppm > logo_mpuzone_clut224.ppm  
+  }}}
+
+== 3> Copy custom logo into linux kernel source tree ==
+  
+  {{{
+      $ cp logo_mpuzone_clut224.ppm linux-x-x/drivers/video/logo
+  }}}
+
+== 4> Modify the linux source code ==
+ 
+  {{{
+    - Add into  Makefile
+
+      obj-$(CONFIG_LOGO_MPUZONE_CLUT224)+= logo_mpuzone_clut224.o
+
+    - Add into logo.c
+
+      #ifdef CONFIG_LOGO_MPUZONE_CLUT224
+	 /* MPUZONE Linux logo */
+	 logo = &logo_mpuzone_clut224;
+      #endif
+
+    - Add into linux_logo.h
+
+      extern const struct linux_logo logo_mpuzone_clut224;
+
+    - Add into Kconfig
+
+      config LOGO_MPUZONE_CLUT224
+	bool "224-color MPUZONE Linux logo"
+	default y 	 
+  }}}
+
+== 5> Rebuild the kernel linux anb boot again ==
+ 
+  {{{
+    - $ make ARCH=arm CROSS_COMPLILE=xxx uImage
+  }}}
+ 
+= Reference =
+
+  [http://www.armadeus.com/wiki/index.php?title=Linux_Boot_Logo]
+ 
+  [http://www.stlinux.com/howto/splash-screen]
